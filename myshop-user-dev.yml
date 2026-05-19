@@ -4,7 +4,11 @@ server:
 spring:
   application:
     name: myshop-user
-
+  datasource:
+    # 将端口从3306改为3307
+    url: jdbc:mysql://192.168.221.136:3307/springcloud?characterEncoding=UTF8&useSSL=false
+    username: root
+    password: 123456
 eureka:
   client:
     register-with-eureka: true # 作为客户端需要注册到Eureka
