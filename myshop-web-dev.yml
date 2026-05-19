@@ -1,0 +1,36 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: myshop-web
+
+  # 添加 Spring Boot Admin 配置
+  boot:
+    admin:
+      client:
+        url: http://localhost:7779
+        instance:
+          prefer-ip: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    prefer-ip-address: true
+
+# 添加 management 端点配置，暴露监控数据
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
